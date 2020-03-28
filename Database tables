@@ -1,0 +1,29 @@
+server.port:8086
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.driverClassName = com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost/bankapp
+spring.datasource.username=root
+spring.datasource.password = 123MySql@1**
+
+spring.jpa.database=MYSQL
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+
+
+Login table:
+
+CREATE TABLE login_details (user_id VARCHAR(200) NOT NULL,password VARCHAR(200) NOT NULL,Name VARCHAR(200) NOT NULL,Account_number INT NOT NULL,PRIMARY KEY (user_id));
+
+INSERT INTO login_details (user_id, password, Name, Account_number) VALUES ("W111","W111@1","Ram",111222331),("W12","W112@2","Raj",111222332),("W113","W113@3","Jas",111222333);
+
+
+Enquiry table:
+
+CREATE TABLE Enquiry_details (Account_number INT NOT NULL,Branch_code INT NOT NULL,Account_type VARCHAR(200) ,Balance INT NOT NULL,Currency VARCHAR(200) ,Status VARCHAR(200) NOT NULL,PRIMARY KEY (Account_number));
+
+INSERT INTO Enquiry_details (Account_number, Branch_code, Account_type, Balance, Currency, Status) VALUES (111222331,001,"Savings",222331,"INR","Active"),(111222332,001,"Current",112332,"INR","Active"),(111222333,001,"Savings",11,"INR","Closed");
+
+
+Fund Transfer table:
+
+CREATE TABLE Customer_transactions (Account_number INT NOT NULL, Branch_code INT NOT NULL, Description VARCHAR(200), Withdrawal INT, Deposit INT, Closing_balance INT, Time DATETIME NOT NULL, PRIMARY KEY (Account_number));
